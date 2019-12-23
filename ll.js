@@ -24,9 +24,25 @@ green_icon_tooltip = L.tooltip({
 marker = L.marker([42.959350,47.552572], {  icon: green_icon } ).bindPopup('text marker 1');
 marker.bindTooltip(green_icon_tooltip);
 marker.setTooltipContent('<img src="icons/net.png" width=20/><img src="icons/220.png" width=20/>');
+//marker.toggleTooltip()
 //marker.unbindTooltip()
 
-
-
-
 marker.addTo(layerGroup)
+
+// setInterval(function() {
+//     marker.toggleTooltip()
+// },
+// 1000);
+
+odd = true;
+setInterval(function() {
+    if (odd) {
+       marker.openTooltip();
+   } else {
+       marker.closeTooltip();
+   }
+   odd=!odd;
+   console.log(odd);
+
+},
+1000);
